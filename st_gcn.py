@@ -1405,7 +1405,7 @@ class STGCN(nn.Module):
 
         # Temporal convolution (ST-GCN key difference)
         self.tcn = nn.Sequential(
-            nn.Conv2d(
+            nn.Conv1d(
                 in_channels=gcn_hidden,
                 out_channels=tcn_hidden,
                 kernel_size=(kernel_size, 1),
