@@ -19,6 +19,19 @@ While graph structure is essential, temporal modeling remains critical. The best
 ### 🔹 Information Propagation Across Firms
 The findings provide empirical evidence that **market information propagates across firms**, especially those frequently co-mentioned in financial news. This confirms the presence of **network effects** in financial markets.
 
+## Model Ablations
+
+The following table summarizes the ablation configurations implemented to evaluate the contribution of each architectural component:
+
+| Model | Writing Description | Code Implementation | Status |
+|-------|---------------------|---------------------|--------|
+| **TGCN** | Dynamic topology + temporal | `static_graph=False`, GCN+GRU | ✅ |
+| **TGCNStatic** | Averaged graph + temporal | `static_graph=True`, averages edges | ✅ |
+| **GRU Only** | Identity matrix (no cross-firm) | Uses identity matrix in GCN | ✅ |
+| **GCN Only** | No recurrent unit | No GRU, mean pooling across time | ✅ |
+| **TGATStatic** | Static graph + attention | GAT + averaged graph + GRU | ✅ |
+| **TGATDynamic** | Dynamic graph + attention | GAT + dynamic graph + GRU | ✅ |
+
 ---
 
 ## 💡 Takeaway
